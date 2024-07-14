@@ -19,12 +19,12 @@ import { ClassValue } from 'clsx';
 export class HlmAccordionDirective {
   private readonly _brn = inject(BrnAccordionDirective);
 
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
   protected readonly _computedClass = computed(() =>
     hlm(
       'flex',
       this._brn.orientation === 'horizontal' ? 'flex-row' : 'flex-col',
-      this._userClass(),
+      this.userClass(),
     ),
   );
 }

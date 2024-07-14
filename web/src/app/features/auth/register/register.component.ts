@@ -18,8 +18,7 @@ import {
 import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
 import {
   HlmInputDirective,
-  HlmInputErrorComponent,
-  HlmInputFormErrorDirective,
+  HlmInputErrorDirective,
 } from '@spartan-ng/ui-input-helm';
 import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 import { RouterLink } from '@angular/router';
@@ -54,7 +53,7 @@ type FormType = ReturnType<RegisterComponent['prepareForm']>;
     TranslateModule,
     FormsModule,
     SignalInputDirective,
-    HlmInputFormErrorDirective,
+    HlmInputErrorDirective,
     HlmSpinnerComponent,
   ],
   providers: [
@@ -64,7 +63,7 @@ type FormType = ReturnType<RegisterComponent['prepareForm']>;
       lucideDoorOpen,
       lucideLogIn,
     }),
-    withErrorComponent(HlmInputErrorComponent),
+    withErrorComponent(HlmInputErrorDirective),
   ],
   template: `
     <main class="flex min-h-[calc(100svh-10rem)]">

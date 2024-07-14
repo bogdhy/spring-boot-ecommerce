@@ -13,18 +13,21 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { routes } from './app.routes';
 
 const initializeKeycloak = (keycloak: KeycloakService) => () =>
-  keycloak.init({
-    config: {
-      url: environment.keycloak.url,
-      realm: environment.keycloak.realm,
-      clientId: environment.keycloak.clientId,
-    },
-    initOptions: {
-      onLoad: 'check-sso',
-      silentCheckSsoRedirectUri:
-        window.location.origin + '/assets/silent-check-sso.html',
-    },
-  });
+  keycloak
+    .init({
+      config: {
+        url: environment.keycloak.url,
+        realm: environment.keycloak.realm,
+        clientId: environment.keycloak.clientId,
+      },
+      initOptions: {
+        onLoad: 'check-sso',
+        pkceMethod: 'S256',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html',
+      },
+    })
+    .catch((error) => console.trace('Keycloak init failed', error));
 
 export const appConfig: ApplicationConfig = {
   providers: [

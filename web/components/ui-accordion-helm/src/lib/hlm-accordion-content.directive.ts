@@ -16,11 +16,11 @@ export class HlmAccordionContentDirective {
     optional: true,
   });
 
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
   protected readonly _computedClass = computed(() => {
     const gridRows =
       this._brn?.state() === 'open' ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]';
-    return hlm('text-sm transition-all grid', gridRows, this._userClass());
+    return hlm('text-sm transition-all grid', gridRows, this.userClass());
   });
 
   constructor() {

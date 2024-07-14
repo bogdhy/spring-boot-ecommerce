@@ -1,74 +1,74 @@
 {
-	"auth": {
-		"input": {
-			"passwordLabel": "Passwort",
-			"passwordPlaceholder": "Gib dein Passwort ein",
-			"repeatPasswordLabel": "Wiederhole das Passwort",
-			"repeatPasswordPlaceholder": "Geben Sie Ihr Passwort erneut ein",
-			"usernameLabel": "Nutzername",
-			"usernamePlaceholder": "Geben Sie Ihren Benutzernamen ein"
-		},
-		"login": {
-			"description": "Melden Sie sich bei Ihrem Konto an",
-			"loggingIn": "Anmeldung läuft...",
-			"title": "Anmeldung"
-		},
-		"loginButton": "Anmeldung",
-		"register": {
-			"description": "Eröffnen Sie ein neues Konto",
-			"registering": "Registrierung läuft...",
-			"title": "Registrieren"
-		},
-		"registerButton": "Registrieren",
-		"validate": {
-			"passwordMax": "Das Passwort darf höchstens {{length}} Zeichen lang sein.",
-			"passwordMin": "Das Passwort muss mindestens {{length}} Zeichen lang sein",
-			"passwordRequired": "Passwort wird benötigt",
-			"repeatPasswordMax": "Das Wiederholungskennwort darf höchstens {{length}} Zeichen lang sein.",
-			"repeatPasswordMin": "Das Wiederholungskennwort muss mindestens {{length}} Zeichen lang sein",
-			"repeatPasswordNoMatch": "Passwörter stimmen nicht überein",
-			"repeatPasswordRequired": "Passwort wiederholen ist erforderlich",
-			"usernameMax": "Der Benutzername darf höchstens {{length}} Zeichen lang sein.",
-			"usernameMin": "Der Benutzername muss mindestens {{length}} Zeichen lang sein",
-			"usernameRequired": "Ein Benutzername ist erforderlich"
-		}
-	},
-	"footer": {
-		"builtBy": "Gebaut von",
-		"github": "Github",
-		"openSource": "Open Source und verfügbar auf"
-	},
-	"header": {
-		"language": {
-			"de": "Deutsch",
-			"en": "Englisch"
-		},
-		"navbar": {
-			"app": "Spring Boot Ecommerce",
-			"close": "Schließen",
-			"github": "Github",
-			"home": "Home",
-			"login": "Anmeldung",
-			"logout": "Ausloggen",
-			"openMenu": "Menü öffnen",
-			"products": "Produkte",
-			"register": "Registrieren"
-		},
-		"profile": {
-			"description": "Profil"
-		},
-		"theme": {
-			"changeTheme": "Öffnen Sie das Menü, um das Thema zu ändern",
-			"dark": "Dunkel",
-			"light": "Licht",
-			"system": "System"
-		}
-	},
-	"home": {
-		"badge": "Entdecken Sie die E-Commerce-Revolution. Willkommen bei Spartan Commerce.",
-		"description": "Werten Sie Ihren Online-Shop mit unserer Spring Boot-E-Commerce-Vorlage mit sicherer Keycloak-Authentifizierung und der eleganten Spartan-Benutzeroberfläche auf. Maßgeschneidert für Leistung und Skalierbarkeit.",
-		"login": "Anmeldung",
-		"starOnGithub": "Stern auf Github",
-		"title": "Sichere und skalierbare E-Commerce-Lösungen."
-	}
+  "auth": {
+    "input": {
+      "passwordLabel": "Passwort",
+      "passwordPlaceholder": "Gib dein Passwort ein",
+      "repeatPasswordLabel": "Wiederhole das Passwort",
+      "repeatPasswordPlaceholder": "Geben Sie Ihr Passwort erneut ein",
+      "usernameLabel": "Nutzername",
+      "usernamePlaceholder": "Geben Sie Ihren Benutzernamen ein"
+    },
+    "login": {
+      "description": "Melden Sie sich bei Ihrem Konto an",
+      "loggingIn": "Anmeldung läuft...",
+      "title": "Anmeldung"
+    },
+    "loginButton": "Anmeldung",
+    "register": {
+      "description": "Eröffnen Sie ein neues Konto",
+      "registering": "Registrierung läuft...",
+      "title": "Registrieren"
+    },
+    "registerButton": "Registrieren",
+    "validate": {
+      "passwordMax": "Das Passwort darf höchstens {{length}} Zeichen lang sein.",
+      "passwordMin": "Das Passwort muss mindestens {{length}} Zeichen lang sein",
+      "passwordRequired": "Passwort wird benötigt",
+      "repeatPasswordMax": "Das Wiederholungskennwort darf höchstens {{length}} Zeichen lang sein.",
+      "repeatPasswordMin": "Das Wiederholungskennwort muss mindestens {{length}} Zeichen lang sein",
+      "repeatPasswordNoMatch": "Passwörter stimmen nicht überein",
+      "repeatPasswordRequired": "Passwort wiederholen ist erforderlich",
+      "usernameMax": "Der Benutzername darf höchstens {{length}} Zeichen lang sein.",
+      "usernameMin": "Der Benutzername muss mindestens {{length}} Zeichen lang sein",
+      "usernameRequired": "Ein Benutzername ist erforderlich"
+    }
+  },
+  "footer": {
+    "builtBy": "Gebaut von",
+    "github": "Github",
+    "openSource": "Open Source und verfügbar auf"
+  },
+  "header": {
+    "language": {
+      "de": "Deutsch",
+      "en": "Englisch"
+    },
+    "navbar": {
+      "app": "Spring Boot Ecommerce",
+      "close": "Schließen",
+      "github": "Github",
+      "home": "Home",
+      "login": "Anmeldung",
+      "logout": "Ausloggen",
+      "openMenu": "Menü öffnen",
+      "products": "Produkte",
+      "register": "Registrieren"
+    },
+    "profile": {
+      "description": "Profil"
+    },
+    "theme": {
+      "changeTheme": "Öffnen Sie das Menü, um das Thema zu ändern",
+      "dark": "Dunkel",
+      "light": "Licht",
+      "system": "System"
+    }
+  },
+  "home": {
+    "badge": "Entdecken Sie die E-Commerce-Revolution. Willkommen bei Spartan Commerce.",
+    "description": "Werten Sie Ihren Online-Shop mit unserer Spring Boot-E-Commerce-Vorlage mit sicherer Keycloak-Authentifizierung und der eleganten Spartan-Benutzeroberfläche auf. Maßgeschneidert für Leistung und Skalierbarkeit.",
+    "login": "Anmeldung",
+    "starOnGithub": "Stern auf Github",
+    "title": "Sichere und skalierbare E-Commerce-Lösungen."
+  }
 }

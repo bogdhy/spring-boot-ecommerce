@@ -64,13 +64,6 @@ const TAILWIND_H_W_PATTERN = /\b(h-\d+|w-\d+)\b/g;
   },
 })
 export class HlmIconComponent implements OnDestroy {
-  private readonly _host = inject(ElementRef);
-  private readonly _platformId = inject(PLATFORM_ID);
-
-  private _mutObs?: MutationObserver;
-
-  private readonly _hostClasses = signal<string>('');
-
   protected readonly _name = signal<IconName | string>('');
   protected readonly _size = signal<IconSize>('base');
   protected readonly _color = signal<string | undefined>(undefined);
@@ -82,7 +75,10 @@ export class HlmIconComponent implements OnDestroy {
     isDefinedSize(this._size()) ? '100%' : (this._size() as string),
   );
   protected readonly ngIconCls = signal<ClassValue>('');
-
+  private readonly _host = inject(ElementRef);
+  private readonly _platformId = inject(PLATFORM_ID);
+  private _mutObs?: MutationObserver;
+  private readonly _hostClasses = signal<string>('');
   protected readonly _computedClass = computed(() => {
     const size: IconSize = this._size();
     const variant = isDefinedSize(size) ? size : 'none';
@@ -108,11 +104,6 @@ export class HlmIconComponent implements OnDestroy {
         attributes: true,
       });
     }
-  }
-
-  ngOnDestroy() {
-    this._mutObs?.disconnect();
-    this._mutObs = undefined;
   }
 
   @Input()
@@ -143,5 +134,10 @@ export class HlmIconComponent implements OnDestroy {
   @Input()
   set class(cls: ClassValue) {
     this.userCls.set(cls);
+  }
+
+  ngOnDestroy() {
+    this._mutObs?.disconnect();
+    this._mutObs = undefined;
   }
 }

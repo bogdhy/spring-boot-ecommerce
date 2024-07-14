@@ -1,4 +1,4 @@
-import { Directive, computed, input } from '@angular/core';
+import { computed, Directive, input } from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
 import { ClassValue } from 'clsx';
 
@@ -10,11 +10,11 @@ import { ClassValue } from 'clsx';
   },
 })
 export class HlmCommandDirective {
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
   protected _computedClass = computed(() =>
     hlm(
       'flex h-full w-full flex-col overflow-hidden rounded-md border border-border bg-popover text-popover-foreground',
-      this._userClass(),
+      this.userClass(),
     ),
   );
 }

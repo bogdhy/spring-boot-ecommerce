@@ -1,7 +1,7 @@
 import { computed, Directive, Input, input, signal } from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
-import { cva, VariantProps } from 'class-variance-authority';
-import { ClassValue } from 'clsx';
+import { cva, type VariantProps } from 'class-variance-authority';
+import type { ClassValue } from 'clsx';
 
 export const inputVariants = cva(
   'flex rounded-md border font-normal border-input bg-transparent text-sm ring-offset-background file:border-0 file:text-foreground file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
@@ -33,23 +33,23 @@ type InputVariants = VariantProps<typeof inputVariants>;
   },
 })
 export class HlmInputDirective {
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
   private readonly _size = signal<InputVariants['size']>('default');
+  private readonly _error = signal<InputVariants['error']>('auto');
+  protected _computedClass = computed(() =>
+    hlm(
+      inputVariants({ size: this._size(), error: this._error() }),
+      this.userClass(),
+    ),
+  );
+
   @Input()
   set size(value: InputVariants['size']) {
     this._size.set(value);
   }
 
-  private readonly _error = signal<InputVariants['error']>('auto');
   @Input()
   set error(value: InputVariants['error']) {
     this._error.set(value);
   }
-
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
-  protected _computedClass = computed(() =>
-    hlm(
-      inputVariants({ size: this._size(), error: this._error() }),
-      this._userClass(),
-    ),
-  );
 }

@@ -20,8 +20,8 @@ export type CardVariants = VariantProps<typeof cardVariants>;
   },
 })
 export class HlmCardDirective {
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
   protected _computedClass = computed(() =>
-    hlm(cardVariants(), this._userClass()),
+    hlm(cardVariants(), this.userClass()),
   );
 }

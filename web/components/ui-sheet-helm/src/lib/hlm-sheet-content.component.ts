@@ -1,11 +1,11 @@
 import {
   Component,
+  ElementRef,
+  Renderer2,
   computed,
   effect,
-  ElementRef,
   inject,
   input,
-  Renderer2,
   signal,
 } from '@angular/core';
 import { lucideX } from '@ng-icons/lucide';
@@ -17,7 +17,7 @@ import {
 import { HlmIconComponent, provideIcons } from '@spartan-ng/ui-icon-helm';
 import { BrnSheetCloseDirective } from '@spartan-ng/ui-sheet-brain';
 import { cva } from 'class-variance-authority';
-import { ClassValue } from 'clsx';
+import type { ClassValue } from 'clsx';
 import { HlmSheetCloseDirective } from './hlm-sheet-close.directive';
 
 export const sheetVariants = cva(
@@ -40,7 +40,7 @@ export const sheetVariants = cva(
 );
 
 @Component({
-  selector: 'hlm-sheet-content,[hlmSheetContent]',
+  selector: 'hlm-sheet-content',
   standalone: true,
   imports: [HlmSheetCloseDirective, BrnSheetCloseDirective, HlmIconComponent],
   providers: [provideIcons({ lucideX })],
@@ -51,18 +51,18 @@ export const sheetVariants = cva(
   template: `
     <ng-content />
     <button brnSheetClose hlm>
-      <span class="sr-only ">Close</span>
+      <span class="sr-only">Close</span>
       <hlm-icon class="flex h-4 w-4" size="100%" name="lucideX" />
     </button>
   `,
 })
 export class HlmSheetContentComponent {
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
   private _stateProvider = injectExposesStateProvider({ host: true });
   public state = this._stateProvider.state ?? signal('closed');
   private _sideProvider = injectExposedSideProvider({ host: true });
   protected _computedClass = computed(() =>
-    hlm(sheetVariants({ side: this._sideProvider.side() }), this._userClass()),
+    hlm(sheetVariants({ side: this._sideProvider.side() }), this.userClass()),
   );
   private _renderer = inject(Renderer2);
   private _element = inject(ElementRef);

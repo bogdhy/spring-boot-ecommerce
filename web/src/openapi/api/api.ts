@@ -10,4 +10,11 @@ export * from './productPropertyReferenceController.service';
 import { ProductPropertyReferenceControllerService } from './productPropertyReferenceController.service';
 export * from './profileController.service';
 import { ProfileControllerService } from './profileController.service';
-export const APIS = [OrderEntityControllerService, OrderPropertyReferenceControllerService, ProductControllerService, ProductEntityControllerService, ProductPropertyReferenceControllerService, ProfileControllerService];
+export const APIS = [
+  OrderEntityControllerService,
+  OrderPropertyReferenceControllerService,
+  ProductControllerService,
+  ProductEntityControllerService,
+  ProductPropertyReferenceControllerService,
+  ProfileControllerService,
+];

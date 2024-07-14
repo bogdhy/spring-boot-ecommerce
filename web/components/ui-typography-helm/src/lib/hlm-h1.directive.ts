@@ -1,4 +1,4 @@
-import { Directive, computed, input } from '@angular/core';
+import { computed, Directive, input } from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
 import { ClassValue } from 'clsx';
 
@@ -13,6 +13,6 @@ export const hlmH1 =
   },
 })
 export class HlmH1Directive {
-  private readonly _userClass = input<ClassValue>('', { alias: 'class' });
-  protected _computedClass = computed(() => hlm(hlmH1, this._userClass()));
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  protected _computedClass = computed(() => hlm(hlmH1, this.userClass()));
 }

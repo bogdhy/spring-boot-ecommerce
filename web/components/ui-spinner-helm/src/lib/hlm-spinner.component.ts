@@ -52,13 +52,13 @@ export type SpinnerVariants = VariantProps<typeof spinnerVariants>;
 })
 export class HlmSpinnerComponent {
   private readonly _size = signal<SpinnerVariants['size']>('default');
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  protected _computedClass = computed(() =>
+    hlm(spinnerVariants({ size: this._size() }), this.userClass()),
+  );
+
   @Input()
   set size(value: SpinnerVariants['size']) {
     this._size.set(value);
   }
-
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
-  protected _computedClass = computed(() =>
-    hlm(spinnerVariants({ size: this._size() }), this._userClass()),
-  );
 }

@@ -12,14 +12,13 @@ import { ClassValue } from 'clsx';
 })
 export class HlmCommandItemIconDirective {
   private _menuIcon = inject(HlmIconComponent, { host: true, optional: true });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  protected _computedClass = computed(() =>
+    hlm('mr-2 h-4 w-4', this.userClass()),
+  );
 
   constructor() {
     if (!this._menuIcon) return;
     this._menuIcon.size = 'none';
   }
-
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
-  protected _computedClass = computed(() =>
-    hlm('mr-2 h-4 w-4', this._userClass()),
-  );
 }

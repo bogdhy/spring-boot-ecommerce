@@ -1,7 +1,7 @@
-import { Component, Input, computed, input, signal } from '@angular/core';
+import { Component, computed, Input, input, signal } from '@angular/core';
 import { hlm } from '@spartan-ng/ui-core';
 import { BrnMenuDirective } from '@spartan-ng/ui-menu-brain';
-import { VariantProps, cva } from 'class-variance-authority';
+import { cva, VariantProps } from 'class-variance-authority';
 import { ClassValue } from 'clsx';
 
 export const menuVariants = cva(
@@ -30,12 +30,12 @@ type MenuVariants = VariantProps<typeof menuVariants>;
   template: ` <ng-content /> `,
 })
 export class HlmMenuComponent {
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  private readonly _variant = signal<MenuVariants['variant']>('default');
   protected _computedClass = computed(() =>
-    hlm(menuVariants({ variant: this._variant() }), this._userClass()),
+    hlm(menuVariants({ variant: this._variant() }), this.userClass()),
   );
 
-  private readonly _variant = signal<MenuVariants['variant']>('default');
   @Input()
   set variant(value: MenuVariants['variant']) {
     this._variant.set(value);

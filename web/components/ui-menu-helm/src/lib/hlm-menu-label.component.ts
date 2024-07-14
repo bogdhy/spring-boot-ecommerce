@@ -1,8 +1,8 @@
 import {
-  Component,
-  Input,
   booleanAttribute,
+  Component,
   computed,
+  Input,
   input,
   signal,
 } from '@angular/core';
@@ -18,16 +18,16 @@ import { ClassValue } from 'clsx';
   },
 })
 export class HlmMenuLabelComponent {
-  private readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  private readonly _inset = signal<ClassValue>(false);
   protected _computedClass = computed(() =>
     hlm(
       'block px-2 py-1.5 text-sm font-semibold',
       this._inset() && 'pl-8',
-      this._userClass(),
+      this.userClass(),
     ),
   );
 
-  private readonly _inset = signal<ClassValue>(false);
   @Input({ transform: booleanAttribute })
   set inset(value: boolean) {
     this._inset.set(value);

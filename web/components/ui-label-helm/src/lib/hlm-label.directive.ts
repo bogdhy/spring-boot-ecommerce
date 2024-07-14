@@ -52,7 +52,9 @@ export type LabelVariants = VariantProps<typeof labelVariants>;
 export class HlmLabelDirective {
   private readonly _brn = inject(BrnLabelDirective, { host: true });
 
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  private readonly _variant = signal<LabelVariants['variant']>('default');
+  private readonly _error = signal<LabelVariants['error']>('auto');
   protected readonly _computedClass = computed(() =>
     hlm(
       labelVariants({
@@ -60,17 +62,15 @@ export class HlmLabelDirective {
         error: this._error(),
         disabled: this._brn?.dataDisabled() ?? 'auto',
       }),
-      this._userClass(),
+      this.userClass(),
     ),
   );
 
-  private readonly _variant = signal<LabelVariants['variant']>('default');
   @Input()
   set variant(value: LabelVariants['variant']) {
     this._variant.set(value);
   }
 
-  private readonly _error = signal<LabelVariants['error']>('auto');
   @Input()
   set error(value: LabelVariants['error']) {
     this._error.set(value);

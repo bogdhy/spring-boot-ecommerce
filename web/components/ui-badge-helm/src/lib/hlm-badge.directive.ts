@@ -61,7 +61,10 @@ type badgeVariants = VariantProps<typeof badgeVariants>;
   },
 })
 export class HlmBadgeDirective {
-  public readonly _userClass = input<ClassValue>('', { alias: 'class' });
+  public readonly userClass = input<ClassValue>('', { alias: 'class' });
+  private readonly _variant = signal<badgeVariants['variant']>('default');
+  private readonly _static = signal<badgeVariants['static']>(false);
+  private readonly _size = signal<badgeVariants['size']>('default');
   protected _computedClass = computed(() =>
     hlm(
       badgeVariants({
@@ -69,23 +72,20 @@ export class HlmBadgeDirective {
         size: this._size(),
         static: this._static(),
       }),
-      this._userClass(),
+      this.userClass(),
     ),
   );
 
-  private readonly _variant = signal<badgeVariants['variant']>('default');
   @Input()
   set variant(variant: badgeVariants['variant']) {
     this._variant.set(variant);
   }
 
-  private readonly _static = signal<badgeVariants['static']>(false);
   @Input({ transform: booleanAttribute })
   set static(value: badgeVariants['static']) {
     this._static.set(value);
   }
 
-  private readonly _size = signal<badgeVariants['size']>('default');
   @Input()
   set size(size: badgeVariants['size']) {
     this._size.set(size);
